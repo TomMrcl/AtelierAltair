@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-serif: 'Cormorant', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  --background: #E5EFE8;
+  --foreground: #1a2e1a;
+
+  --primary: #4C7A5A;
+  --primary-foreground: #ffffff;
+
+  --muted: #DCE7DD;
+  --muted-foreground: #5a6e5a;
+
+  --card: #F4F8F5;
+  --border: #c5d4c7;
+  --radius: 10px;
+}
+
+* { border-color: var(--border); }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1,h2,h3 { font-family: var(--font-serif); }
+
+/* utilitaires doux */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm tracking-wide rounded-lg transition-colors;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.btn-primary:hover { filter: brightness(0.95); }
