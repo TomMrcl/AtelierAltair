@@ -1,64 +1,87 @@
-export default function Hero() {
+import React from "react";
+
+export default function HeroSection() {
+  const scrollToSection = (href) => {
+    const el = document.querySelector(href);
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section id="home" className="relative min-h-[92vh] flex items-center">
-      {/* Background image */}
-      <img
-        src="/hero.jpg"
-        alt="Tattoo background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+    <section
+      id="home"
+      className="relative min-h-screen overflow-hidden flex items-center justify-center"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1611324980068-0f4b88c92550?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600"
+          alt="Tattoo art background"
+          className="h-full w-full object-cover"
+          loading="eager"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundColor: "rgba(47, 86, 64, 0.55)" }}
+        />
+      </div>
 
-      {/* Teinte verte sombre + léger blur pour matcher la maquette */}
-      <div className="absolute inset-0 bg-[#113222]/85 backdrop-blur-[1px]" />
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
+        <h1 className="font-serif text-white font-[400] tracking-wider text-6xl md:text-8xl">
+          ATELIER ALTAÏR
+        </h1>
 
-      {/* Contenu */}
-      <div className="relative mx-auto max-w-7xl px-6 w-full">
-        <div className="flex flex-col items-center text-center mt-24">
-          {/* Titre géant serif */}
-          <h1
-            className="text-white/95 leading-[1.05]"
-            style={{ fontFamily: "Cormorant, serif", letterSpacing: ".06em" }}
+        <p className="mt-6 text-white/90 font-light tracking-wide text-sm sm:text-base md:text-xl max-w-2xl mx-auto">
+          Artiste tatoueur • Créations uniques • Art corporel d&apos;exception
+        </p>
+
+        <p className="mt-8 font-serif italic font-light text-white/80 text-sm md:text-base max-w-xl mx-auto">
+          &quot;Chaque tatouage raconte une histoire, laissez-moi donner vie à la vôtre&quot;
+        </p>
+
+        {/* Buttons */}
+        <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            type="button"
+            onClick={() => scrollToSection("#gallery")}
+            className="h-12 px-8 rounded-xl text-sm md:text-base font-light tracking-wide text-white transition"
+            style={{ backgroundColor: "#4C7A5A" }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#2F5640")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#4C7A5A")}
           >
-            <span className="block text-[42px] sm:text-[56px] md:text-[72px] lg:text-[92px]">
-              ATELIER ALTAÏR
-            </span>
-          </h1>
+            Voir mes créations
+          </button>
 
-          {/* Sous-titre à points séparateurs */}
-          <p className="mt-6 text-[18px] md:text-[20px] text-white/90">
-            <span className="mx-1">Artiste tatoueur</span>
-            <span className="mx-2">•</span>
-            <span className="mx-1">Créations uniques</span>
-            <span className="mx-2">•</span>
-            <span className="mx-1">Art corporel d'exception</span>
-          </p>
+          <button
+            type="button"
+            onClick={() => scrollToSection("#booking")}
+            className="h-12 px-8 rounded-xl text-sm md:text-base font-light tracking-wide transition border-2"
+            style={{ backgroundColor: "transparent", color: "white", borderColor: "white" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "white";
+              e.currentTarget.style.color = "#2F5640";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+              e.currentTarget.style.color = "white";
+            }}
+          >
+            Prendre rendez-vous
+          </button>
+        </div>
+      </div>
 
-          {/* Petite citation */}
-          <p className="mt-6 text-[14px] md:text-[15px] text-white/80 italic">
-            “Chaque tatouage raconte une histoire, laissez-moi donner vie à la vôtre”
-          </p>
-
-          {/* Boutons */}
-          <div className="mt-8 flex items-center gap-4">
-            <a
-              href="#gallery"
-              className="rounded-lg px-5 py-3 text-white bg-[#4C7A5A] hover:bg-[#3E664A] border border-transparent transition-colors shadow-sm"
-            >
-              Voir mes créations
-            </a>
-            <a
-              href="#booking"
-              className="rounded-lg px-5 py-3 text-white/95 border border-white/40 hover:border-white/70 hover:bg-white/10 transition-colors"
-            >
-              Prendre rendez-vous
-            </a>
-          </div>
-
-          {/* Indicateur scroll (petit cercle + trait comme sur ton screen) */}
-          <div className="mt-20 md:mt-28 flex flex-col items-center gap-3">
-            <div className="h-8 w-[1.5px] bg-white/50" />
-            <div className="h-2.5 w-2.5 rounded-full border border-white/60" />
-          </div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        <div className="animate-bounce">
+          <div
+            className="mx-auto mb-2 h-12 w-px"
+            style={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}
+          />
+          <div
+            className="mx-auto h-2 w-2 rounded-full"
+            style={{ border: "1px solid rgba(255, 255, 255, 0.5)" }}
+          />
         </div>
       </div>
     </section>
