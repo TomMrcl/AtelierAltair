@@ -139,7 +139,7 @@ export default function PricingSection() {
       <div className="mx-auto max-w-6xl px-4 py-20">
         {/* Header */}
         <div className="text-center">
-          <h2 className="font-serif text-5xl md:text-6xl tracking-wide text-[#2F5640] font-[400]">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
             Tarifs & FAQ
           </h2>
           <p className="mt-4 text-sm md:text-base font-light text-[#5a6e5a]">
@@ -190,15 +190,34 @@ export default function PricingSection() {
           </div>
         </div>
 
-        {/* Download button */}
-        <div className="mt-14 flex justify-center">
-          <a
-            href="/fiche-renseignements.pdf"
-            className="inline-flex h-11 items-center gap-3 rounded-xl bg-[#4C7A5A] px-6 text-sm font-light tracking-wide text-white transition hover:bg-[#2F5640]"
-          >
-            <span className="text-base">⬇</span>
-            Télécharger la fiche de renseignements
-          </a>
+        {/* Fiches de renseignements */}
+        <div className="mt-14">
+          <h3 className="text-center font-serif text-2xl tracking-wide text-[#2F5640] font-[400] mb-6">
+            Fiches de renseignements
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl border border-[#c5d4c7] bg-white overflow-hidden">
+              <img
+                src="/fiches-renseignement1.jpg"
+                alt="Fiche de renseignements 1"
+                className="w-full h-62 object-cover"
+              />
+            </div>
+            <div className="rounded-2xl border border-[#c5d4c7] bg-white overflow-hidden">
+              <img
+                src="/fiches-renseignement2.jpg"
+                alt="Fiche de renseignements 2"
+                className="w-full h-62 object-cover"
+              />
+            </div>
+            <div className="rounded-2xl border border-[#c5d4c7] bg-white overflow-hidden">
+              <img
+                src="/fiches-renseignement3.jpg"
+                alt="Fiche de renseignements 3"
+                className="w-full h-62 object-cover"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

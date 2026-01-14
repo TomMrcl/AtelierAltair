@@ -8,7 +8,7 @@ export default function Header() {
     { label: "Accueil", href: "#home" },
     { label: "Galerie", href: "#gallery" },
     { label: "Artiste", href: "#artist" },
-    { label: "Calendrier", href: "#booking" },
+    { label: "Disponibilités", href: "#booking" },
     { label: "Tarifs & FAQ", href: "#pricing" },
     { label: "Contact", href: "#contact" },
   ];

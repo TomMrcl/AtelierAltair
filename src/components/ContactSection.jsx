@@ -38,14 +38,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-[#E5EFE8] border-t border-[#D7E2D7]">
+    <section id="contact" className="bg-[#F4F8F5] border-t border-[#D7E2D7]">
       <div className="mx-auto max-w-6xl px-4 py-20">
         {/* Header */}
         <div className="text-center">
-          <h2 className="font-serif text-5xl md:text-6xl tracking-wide text-[#2F5640] font-[400]">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
             Contact
           </h2>
-          <p className="mt-4 text-sm md:text-base font-light text-[#5a6e5a]">
+          <p className="mt-4 text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
             Parlons de votre projet de tatouage
           </p>
         </div>

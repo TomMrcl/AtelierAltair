@@ -99,10 +99,10 @@ export default function CreationsSection({ artworks = ARTWORKS }) {
       <div className="mx-auto max-w-6xl px-4 py-20">
         {/* Header */}
         <div className="text-center">
-          <h2 className="font-serif text-5xl md:text-6xl tracking-wide text-[#2F5640] font-[400]">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
             Créations
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base font-light text-[#5a6e5a]">
+          <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
             Découvrez mes œuvres artistiques, réalisées en parallèle de mon travail de tatoueuse
           </p>
         </div>

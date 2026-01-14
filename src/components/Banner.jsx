@@ -27,11 +27,11 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
-        <h1 className="font-serif text-white font-[400] tracking-wider text-6xl md:text-8xl">
+        <h1 className="font-serif text-white font-[400] tracking-wider text-4xl md:text-6xl lg:text-8xl">
           ATELIER ALTAÏR
         </h1>
 
-        <p className="mt-6 text-white/90 font-light tracking-wide text-sm sm:text-base md:text-xl max-w-2xl mx-auto">
+        <p className="mt-6 text-white/90 tracking-wide text-sm sm:text-base md:text-xl max-w-2xl mx-auto" style={{ fontFamily: "'Inter', sans-serif" }}>
           Artiste tatoueur • Créations uniques • Art corporel d&apos;exception
         </p>
 

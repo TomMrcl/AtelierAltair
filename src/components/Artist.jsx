@@ -6,30 +6,17 @@ export default function ArtistSection() {
           {/* Left: media card */}
           <div className="relative">
             <div className="overflow-hidden rounded-2xl shadow-[0_14px_30px_rgba(0,0,0,0.10)] border border-black/5 bg-white">
-              {/* Image */}
+              {/* Video */}
               <div className="relative aspect-[4/3]">
-                <img
-                  src="/artist.jpg"
-                  alt="L'artiste"
+                <video
+                  src="/example-video.mp4"
+                  poster="https://images.unsplash.com/photo-1611324980068-0f4b88c92550?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600"
+                  controls
                   className="absolute inset-0 h-full w-full object-cover"
-                />
-
-                {/* Play button overlay */}
-                <button
-                  type="button"
-                  aria-label="Lire la vidéo"
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-                             h-16 w-16 rounded-full bg-[#3E6A4D]/90 hover:bg-[#3E6A4D]
-                             shadow-md ring-1 ring-white/20 transition"
+                  preload="metadata"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="mx-auto h-7 w-7 translate-x-[1px] text-white"
-                    fill="currentColor"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </button>
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
               </div>
 
               {/* Bottom light area like the mock */}
@@ -43,27 +30,27 @@ export default function ArtistSection() {
               className="text-[#2F5640] text-center lg:text-left"
               style={{ fontFamily: "Cormorant, serif", letterSpacing: ".02em" }}
             >
-              <span className="block text-[52px] md:text-[64px] leading-none">
+              <span className="block text-3xl md:text-4xl lg:text-5xl xl:text-[64px] leading-none">
                 L'Artiste
               </span>
             </h2>
 
             <div className="mt-8 space-y-8 text-[#274735]/90 leading-relaxed text-[16px]">
-              <p>
+              <p style={{ fontFamily: "'Inter', sans-serif" }}>
                 Passionnée par l'art corporel depuis plus de 8 ans, je
                 transforme chaque idée en une œuvre d'art unique et personnelle.
                 Mon approche allie technique précise et créativité artistique
                 pour donner vie à vos projets les plus ambitieux.
               </p>
 
-              <p className="text-[#274735]/80">
+              <p className="text-[#274735]/80" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Spécialisée dans le réalisme noir et gris, les créations
                 géométriques et les compositions florales, j'accorde une
                 importance particulière à l'écoute et à la collaboration avec
                 mes clients pour créer des pièces qui leur ressemblent.
               </p>
 
-              <p className="text-[#274735]/90">
+              <p className="text-[#274735]/90" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Chaque tatouage est une aventure créative partagée, un moment
                 privilégié où l'art rencontre l'émotion. Mon studio, situé dans
                 le cœur artistique de la ville, offre un environnement

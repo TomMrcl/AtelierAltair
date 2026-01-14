@@ -1,12 +1,13 @@
 import Header from "./components/Header.jsx";
-import HeroSection from "./components/HeroSection.jsx";
+import HeroSection from "./components/Banner.jsx";
 import Gallery from "./components/Gallery.jsx";
-import ArtistSection from "./components/ArtistSection.jsx";
-import PricingSection from "./components/PricingSection.jsx";
+import ArtistSection from "./components/Artist.jsx";
+import PricingSection from "./components/FAQ.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import Footer from "./components/Footer.jsx";
-import AvailabilitySection from "./components/AvailabilitySection.jsx";
-import CreationsSection from "./components/CreationsSection.jsx";
+import AvailabilitySection from "./components/Availability.jsx";
+import CreationsSection from "./components/Creations.jsx";
+import Atelier from "./components/Atelier.jsx";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <AvailabilitySection />
         <PricingSection />
         <CreationsSection />
+        <Atelier />
         <ContactSection />
       </main>
       <Footer />
