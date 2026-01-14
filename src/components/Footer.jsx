@@ -44,7 +44,7 @@ export default function Footer({
             <h3 className="font-serif text-2xl tracking-wider text-[#2F5640]">
               {brandName}
             </h3>
-            <p className="text-sm font-light leading-relaxed text-[#5a6e5a]">
+            <p className="text-sm leading-relaxed text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
               Artiste tatoueur passionnée
               <br />
               Créations uniques et personnalisées
@@ -58,7 +58,7 @@ export default function Footer({
             <h4 className="text-sm font-light tracking-wide text-[#2F5640]">
               Contact
             </h4>
-            <div className="space-y-2 text-sm font-light text-[#5a6e5a]">
+            <div className="space-y-2 text-sm text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
               <p>
                 {addressLines[0]}
                 <br />

@@ -23,7 +23,7 @@ export default function BookingSection({
         {/* CTA + Infos */}
         <div className="mt-12 space-y-6">
           <div className="rounded-2xl border border-[#c5d4c7] bg-white px-8 py-8 text-center">
-            <p className="text-sm md:text-base font-light text-[#3a4e3a]">
+            <p className="text-sm md:text-base text-[#3a4e3a]" style={{ fontFamily: "'Inter', sans-serif" }}>
               Pour réserver, contactez-moi directement via Instagram ou par message
             </p>
 
@@ -65,7 +65,7 @@ export default function BookingSection({
               <h4 className="font-serif mb-3 font-light tracking-wide text-[#2F5640]">
                 Consultation gratuite
               </h4>
-              <p className="text-sm font-light leading-relaxed text-[#5a6e5a]">
+              <p className="text-sm leading-relaxed text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Chaque projet commence par une consultation pour discuter de vos idées et définir ensemble votre tatouage.
               </p>
             </div>
@@ -74,7 +74,7 @@ export default function BookingSection({
               <h4 className="font-serif mb-3 font-light tracking-wide text-[#2F5640]">
                 Acompte requis
               </h4>
-              <p className="text-sm font-light leading-relaxed text-[#5a6e5a]">
+              <p className="text-sm leading-relaxed text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Un acompte de 30% est demandé pour confirmer votre rendez-vous. Celui-ci est non remboursable.
               </p>
             </div>

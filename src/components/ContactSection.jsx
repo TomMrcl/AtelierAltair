@@ -65,7 +65,7 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Nom */}
                   <div className="space-y-2">
-                    <label className="text-xs font-light text-[#2F5640]" htmlFor="name">
+                    <label className="text-xs text-[#2F5640]" htmlFor="name" style={{ fontFamily: "'Inter', sans-serif" }}>
                       Nom complet
                     </label>
                     <input
@@ -81,7 +81,7 @@ export default function ContactSection() {
 
                   {/* Email */}
                   <div className="space-y-2">
-                    <label className="text-xs font-light text-[#2F5640]" htmlFor="email">
+                    <label className="text-xs text-[#2F5640]" htmlFor="email" style={{ fontFamily: "'Inter', sans-serif" }}>
                       Email
                     </label>
                     <input
@@ -98,7 +98,7 @@ export default function ContactSection() {
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <label className="text-xs font-light text-[#2F5640]" htmlFor="message">
+                    <label className="text-xs text-[#2F5640]" htmlFor="message" style={{ fontFamily: "'Inter', sans-serif" }}>
                       Message
                     </label>
                     <textarea

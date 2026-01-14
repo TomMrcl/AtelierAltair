@@ -73,7 +73,7 @@ function PricingCard({ item }) {
             <div className="text-[15px] font-light tracking-wide text-[#2F5640]">
               {item.category}
             </div>
-            <div className="mt-1 text-sm font-light text-[#5a6e5a]">
+            <div className="mt-1 text-sm text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
               {item.description}
             </div>
           </div>
@@ -82,7 +82,7 @@ function PricingCard({ item }) {
             <div className="font-serif text-[16px] font-[400] text-[#4C7A5A]">
               {item.price}
             </div>
-            <div className="mt-1 text-sm font-light text-[#5a6e5a]">
+            <div className="mt-1 text-sm text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
               {item.duration}
             </div>
           </div>
@@ -122,7 +122,7 @@ function FAQItem({ q, a, isOpen, onToggle }) {
         }`}
       >
         <div className="min-h-0">
-          <p className="text-sm font-light leading-relaxed text-[#5a6e5a]">
+          <p className="text-sm leading-relaxed text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
             {a}
           </p>
         </div>
@@ -142,7 +142,7 @@ export default function PricingSection() {
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
             Tarifs & FAQ
           </h2>
-          <p className="mt-4 text-sm md:text-base font-light text-[#5a6e5a]">
+          <p className="mt-4 text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
             Informations sur les tarifs et réponses aux questions fréquentes
           </p>
         </div>
@@ -161,7 +161,7 @@ export default function PricingSection() {
             </div>
 
             <div className="mt-6 rounded-2xl border border-[#c5d4c7] bg-white px-7 py-6">
-              <p className="text-sm font-light leading-relaxed text-[#3a4e3a]">
+              <p className="text-sm leading-relaxed text-[#3a4e3a]" style={{ fontFamily: "'Inter', sans-serif" }}>
                 <span className="font-medium text-[#2F5640]">Note importante :</span>{" "}
                 Les tarifs sont indicatifs et peuvent varier selon la complexité du projet.
                 Un acompte de 30% est demandé à la réservation. Les retouches incluses

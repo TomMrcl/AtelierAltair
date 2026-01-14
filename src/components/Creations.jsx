@@ -190,12 +190,12 @@ export default function CreationsSection({ artworks = ARTWORKS }) {
                   <h3 className="font-serif text-xl font-light tracking-wide text-[#2F5640]">
                     {activeData.title}
                   </h3>
-                  <p className="mt-2 text-sm font-light text-[#5a6e5a]">
+                  <p className="mt-2 text-sm text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
                     {activeData.description}
                   </p>
                 </div>
 
-                <div className="shrink-0 rounded-full bg-[#DCE7DD] px-4 py-2 text-sm font-light text-[#2F5640]">
+                <div className="shrink-0 rounded-full bg-[#DCE7DD] px-4 py-2 text-sm text-[#2F5640]" style={{ fontFamily: "'Inter', sans-serif" }}>
                   {activeData.medium}
                 </div>
               </div>

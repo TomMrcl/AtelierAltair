@@ -163,7 +163,7 @@ export default function GallerySection({ works = TATTOO_WORKS }) {
               <h3 className="font-serif text-xl font-light tracking-wide text-[#2F5640]">
                 {active.title}
               </h3>
-              <p className="mt-2 text-sm font-light text-[#5a6e5a]">
+              <p className="mt-2 text-sm text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
                 {active.description}
               </p>
             </div>
