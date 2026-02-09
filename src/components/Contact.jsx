@@ -191,7 +191,7 @@ export default function ContactSection() {
                   <div>
                     <div className="text-sm font-light text-[#2F5640]">Instagram</div>
                     <div className="mt-1 text-sm font-light text-[#5a6e5a]">
-                      @nomInstagram
+                      @atelieraltair
                     </div>
                   </div>
                 </div>
@@ -209,7 +209,6 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* (optionnel) si tu veux comme sur le screen : rien d’autre ici */}
             </div>
           </div>
         </div>

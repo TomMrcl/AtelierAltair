@@ -29,7 +29,7 @@ export default function BookingSection({
 
             <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href={instagramUrl}
+                href="https://www.instagram.com/atelieraltair/"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#4C7A5A] px-6 h-12 text-sm font-light tracking-wide text-white transition hover:bg-[#2F5640]"

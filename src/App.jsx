@@ -3,7 +3,7 @@ import HeroSection from "./components/Banner.jsx";
 import Gallery from "./components/Gallery.jsx";
 import ArtistSection from "./components/Artist.jsx";
 import PricingSection from "./components/FAQ.jsx";
-import ContactSection from "./components/ContactSection.jsx";
+import ContactSection from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import AvailabilitySection from "./components/Availability.jsx";
 import CreationsSection from "./components/Creations.jsx";

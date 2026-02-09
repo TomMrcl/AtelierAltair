@@ -23,7 +23,7 @@ export default function Footer({
   phone = "+33 6 12 34 56 78",
   email = "contact@atelieraltair.fr",
   socials = {
-    instagram: "#",
+    instagram: "https://www.instagram.com/atelieraltair/",
     facebook: "#",
     tiktok: "#",
   },
@@ -96,15 +96,6 @@ export default function Footer({
                 <Facebook size={22} />
               </a>
 
-              <a
-                href={socials.tiktok}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="TikTok"
-                className="text-[#4C7A5A] transition-colors duration-200 hover:text-[#2F5640]"
-              >
-                <TikTokIcon />
-              </a>
             </div>
           </div>
         </div>
