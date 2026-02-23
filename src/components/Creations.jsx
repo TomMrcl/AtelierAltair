@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import siteContent from "../content/siteContent";
 
 const ARTWORKS = [
   {
@@ -75,7 +76,7 @@ function useLockBodyScroll(locked) {
   }, [locked]);
 }
 
-export default function CreationsSection({ artworks = ARTWORKS }) {
+export default function CreationsSection({ artworks = (siteContent.creations?.artworks?.length ? siteContent.creations.artworks : ARTWORKS) }) {
   const [active, setActive] = useState(null);
   useLockBodyScroll(Boolean(active));
 
@@ -100,10 +101,10 @@ export default function CreationsSection({ artworks = ARTWORKS }) {
         {/* Header */}
         <div className="text-center">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
-            Créations
+            {siteContent.creations?.heading}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Découvrez mes œuvres artistiques, réalisées en parallèle de mon travail de tatoueuse
+            {siteContent.creations?.subtitle}
           </p>
         </div>
 

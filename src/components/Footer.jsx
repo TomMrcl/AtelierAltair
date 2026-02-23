@@ -1,5 +1,6 @@
 import React from "react";
 import { Instagram, Facebook } from "lucide-react";
+import siteContent from "../content/siteContent";
 
 function TikTokIcon({ className = "" }) {
   return (
@@ -17,21 +18,13 @@ function TikTokIcon({ className = "" }) {
 }
 
 export default function Footer({
-  brandName = "ATELIER ALTAÏR",
-  city = "Lyon, France",
-  addressLines = ["123 Rue de l'Art", "69000 Lyon, France"],
-  phone = "+33 6 12 34 56 78",
-  email = "contact@atelieraltair.fr",
-  socials = {
-    instagram: "https://www.instagram.com/atelieraltair/",
-    facebook: "#",
-    tiktok: "#",
-  },
-  legalLinks = {
-    mentions: "#",
-    privacy: "#",
-    cgv: "#",
-  },
+  brandName = siteContent.footer?.brandName,
+  city = siteContent.footer?.city,
+  addressLines = siteContent.footer?.addressLines,
+  phone = siteContent.footer?.phone,
+  email = siteContent.footer?.email,
+  socials = siteContent.footer?.socials,
+  legalLinks = siteContent.footer?.legalLinks,
 }) {
   const year = new Date().getFullYear();
 
@@ -45,10 +38,12 @@ export default function Footer({
               {brandName}
             </h3>
             <p className="text-sm leading-relaxed text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Artiste tatoueur passionnée
-              <br />
-              Créations uniques et personnalisées
-              <br />
+              {siteContent.footer?.descriptionLines?.map((l, i) => (
+                <React.Fragment key={i}>
+                  {l}
+                  <br />
+                </React.Fragment>
+              ))}
               {city}
             </p>
           </div>

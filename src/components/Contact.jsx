@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Upload, Mail, Clock, Instagram } from "lucide-react";
+import siteContent from "../content/siteContent";
 
 export default function ContactSection() {
   const fileInputRef = useRef(null);
@@ -43,10 +44,10 @@ export default function ContactSection() {
         {/* Header */}
         <div className="text-center">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
-            Contact
+            {siteContent.contact?.heading}
           </h2>
           <p className="mt-4 text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Parlons de votre projet de tatouage
+            {siteContent.contact?.subtitle}
           </p>
         </div>
 
@@ -179,20 +180,20 @@ export default function ContactSection() {
                 <div className="flex items-start gap-4">
                   <Mail className="mt-0.5 h-5 w-5 text-[#4C7A5A]" />
                   <div>
-                    <div className="text-sm font-light text-[#2F5640]">Email</div>
-                    <div className="mt-1 text-sm font-light text-[#5a6e5a]">
-                      contact@atelieraltair.fr
-                    </div>
+                        <div className="text-sm font-light text-[#2F5640]">Email</div>
+                        <div className="mt-1 text-sm font-light text-[#5a6e5a]">
+                          {siteContent.contact?.info?.email}
+                        </div>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <Instagram className="mt-0.5 h-5 w-5 text-[#4C7A5A]" />
                   <div>
-                    <div className="text-sm font-light text-[#2F5640]">Instagram</div>
-                    <div className="mt-1 text-sm font-light text-[#5a6e5a]">
-                      @atelieraltair
-                    </div>
+                        <div className="text-sm font-light text-[#2F5640]">Instagram</div>
+                        <div className="mt-1 text-sm font-light text-[#5a6e5a]">
+                          {siteContent.contact?.info?.instagramHandle}
+                        </div>
                   </div>
                 </div>
 
@@ -201,9 +202,9 @@ export default function ContactSection() {
                   <div>
                     <div className="text-sm font-light text-[#2F5640]">Horaires</div>
                     <div className="mt-2 space-y-1 text-sm font-light text-[#5a6e5a]">
-                      <div>Lundi - Samedi : 10h - 19h</div>
-                      <div>Dimanche : Fermé</div>
-                      <div className="pt-2 text-xs text-[#7a8e7a]">Sur rendez-vous uniquement</div>
+                      {siteContent.contact?.info?.hours?.map((h) => (
+                        <div key={h}>{h}</div>
+                      ))}
                     </div>
                   </div>
                 </div>

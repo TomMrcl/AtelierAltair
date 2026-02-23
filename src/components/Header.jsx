@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import siteContent from "../content/siteContent";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = [
-    { label: "Accueil", href: "#home" },
-    { label: "Galerie", href: "#gallery" },
-    { label: "Artiste", href: "#artist" },
-    { label: "Disponibilités", href: "#booking" },
-    { label: "Tarifs & FAQ", href: "#pricing" },
-    { label: "Contact", href: "#contact" },
-  ];
+  const navItems = siteContent.header?.navItems || [];
 
   const scrollToSection = (href) => {
     const el = document.querySelector(href);
@@ -44,7 +38,7 @@ export default function Header() {
             onClick={() => scrollToSection("#home")}
             className="font-serif text-2xl tracking-wider text-[#2F5640]"
           >
-            ATELIER ALTAÏR
+            {siteContent.header?.brandName ?? "ATELIER"}
           </button>
 
           {/* Desktop nav */}

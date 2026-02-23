@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import siteContent from "../content/siteContent";
 
 const TATTOO_WORKS = [
   {
@@ -67,7 +68,7 @@ function CloseIcon() {
   );
 }
 
-export default function GallerySection({ works = TATTOO_WORKS }) {
+export default function GallerySection({ works = (siteContent.gallery?.works?.length ? siteContent.gallery.works : TATTOO_WORKS) }) {
   const [activeId, setActiveId] = useState(null);
   useLockBodyScroll(Boolean(activeId));
 
@@ -88,10 +89,10 @@ export default function GallerySection({ works = TATTOO_WORKS }) {
       <div className="mx-auto max-w-6xl px-4 py-20">
         <div className="text-center">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
-            Galerie
+            {siteContent.gallery?.heading}
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Découvrez une sélection de mes créations, chaque œuvre étant unique et personnalisée
+            {siteContent.gallery?.subtitle}
           </p>
         </div>
 

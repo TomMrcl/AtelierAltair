@@ -1,46 +1,9 @@
 import React, { useMemo, useState } from "react";
+import siteContent from "../content/siteContent";
 
-const PRICING = [
-  { category: "Petit tatouage", description: "5-10cm, simple", price: "80-150€", duration: "1-2h" },
-  { category: "Tatouage moyen", description: "10-20cm, détaillé", price: "150-300€", duration: "2-4h" },
-  { category: "Grand tatouage", description: "+20cm, complexe", price: "300€+", duration: "4h+" },
-  { category: "Tarif horaire", description: "Pour projets sur mesure", price: "80€/h", duration: "Variable" },
-];
+const PRICING = siteContent.pricing?.pricingGrid || [];
 
-const FAQ = [
-  {
-    q: "Comment prendre rendez-vous ?",
-    a: "Vous pouvez prendre rendez-vous via le calendrier ci-dessus ou en utilisant le formulaire de contact. Une consultation préalable est recommandée pour les projets importants.",
-  },
-  {
-    q: "Quel est le processus de création ?",
-    a: "Après notre première consultation, je crée un design personnalisé basé sur vos idées. Nous affinons ensemble le projet jusqu'à validation, puis nous planifions la session.",
-  },
-  {
-    q: "Comment se déroule la séance ?",
-    a: "Chaque séance commence par la préparation de la zone et l'application du transfert. Je vous explique chaque étape et m'assure de votre confort tout au long du processus.",
-  },
-  {
-    q: "Quels sont les soins post-tatouage ?",
-    a: "Je vous fournis une fiche de soins détaillée et les recommandations pour la cicatrisation (nettoyage doux, crème, éviter soleil/piscine).",
-  },
-  {
-    q: "Puis-je apporter mes propres références ?",
-    a: "Absolument ! Apporter des références visuelles aide à mieux comprendre votre vision et à créer un tatouage qui vous ressemble.",
-  },
-  {
-    q: "Faites-vous des retouches ?",
-    a: "Oui, les retouches peuvent être proposées selon le projet. Les conditions exactes sont précisées au moment de la réservation.",
-  },
-  {
-    q: "Acceptez-vous les mineurs ?",
-    a: "Je tatoue les mineurs de 16-18 ans uniquement avec autorisation parentale écrite et présence d'un parent lors de la séance.",
-  },
-  {
-    q: "Quels sont vos styles de prédilection ?",
-    a: "Réalisme noir & gris, créations géométriques, compositions florales et old school. Chaque style est adapté à votre projet.",
-  },
-];
+const FAQ = siteContent.pricing?.faq || [];
 
 function Chevron({ open }) {
   return (
@@ -140,10 +103,10 @@ export default function PricingSection() {
         {/* Header */}
         <div className="text-center">
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
-            Tarifs & FAQ
+            {siteContent.pricing?.heading}
           </h2>
           <p className="mt-4 text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Informations sur les tarifs et réponses aux questions fréquentes
+            {siteContent.pricing?.subtitle}
           </p>
         </div>
 
