@@ -5,11 +5,19 @@ import siteContent from "../content/siteContent";
 export default function ContactSection() {
   const fileInputRef = useRef(null);
 
+  const FORMSPREE_ENDPOINT =
+    siteContent?.contact?.formspreeEndpoint || "https://formspree.io/f/mpqjolop";
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
     files: [],
+  });
+
+  const [status, setStatus] = useState({
+    state: "idle", // idle | sending | success | error
+    message: "",
   });
 
   const handleInputChange = (e) => {
@@ -18,7 +26,7 @@ export default function ContactSection() {
   };
 
   const pickFiles = (fileList) => {
-    const files = Array.from(fileList || []).slice(0, 5); // limite simple (optionnel)
+    const files = Array.from(fileList || []).slice(0, 5);
     setFormData((p) => ({ ...p, files }));
   };
 
@@ -31,11 +39,66 @@ export default function ContactSection() {
     pickFiles(e.dataTransfer.files);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Votre message a été envoyé ! Je vous répondrai dans les plus brefs délais.");
+  const resetForm = () => {
     setFormData({ name: "", email: "", message: "", files: [] });
     if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ state: "sending", message: "" });
+
+    try {
+      if (!FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT === "YOUR_FORMSPREE_ENDPOINT") {
+        throw new Error("Endpoint Formspree manquant. Ajoute-le dans siteContent.contact.formspreeEndpoint.");
+      }
+
+      // FormData => support texte + fichiers
+      const data = new FormData();
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("message", formData.message);
+
+      // Optionnel : meta utile côté réception
+      data.append("_subject", `Nouveau message - ${formData.name}`);
+      data.append("_replyto", formData.email);
+
+      // Honeypot anti-spam (champ caché)
+      data.append("_gotcha", "");
+
+      // Fichiers
+      formData.files.forEach((file) => {
+        data.append("files_names", formData.files.map(f => f.name).join(", "));
+      });
+
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      const json = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        const msg =
+          json?.errors?.[0]?.message ||
+          "Une erreur est survenue. Réessaie ou contacte-moi sur Instagram.";
+        throw new Error(msg);
+      }
+
+      setStatus({
+        state: "success",
+        message: "Votre message a été envoyé ! Je vous répondrai au plus vite.",
+      });
+      resetForm();
+    } catch (err) {
+      setStatus({
+        state: "error",
+        message: err?.message || "Impossible d’envoyer le message pour le moment.",
+      });
+    }
   };
 
   return (
@@ -46,7 +109,10 @@ export default function ContactSection() {
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-wide text-[#2F5640] font-[400]">
             {siteContent.contact?.heading}
           </h2>
-          <p className="mt-4 text-sm md:text-base text-[#5a6e5a]" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p
+            className="mt-4 text-sm md:text-base text-[#5a6e5a]"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             {siteContent.contact?.subtitle}
           </p>
         </div>
@@ -63,10 +129,38 @@ export default function ContactSection() {
               </div>
 
               <div className="px-7 pb-7 pt-6">
+                {/* Status messages */}
+                {status.state !== "idle" && status.message && (
+                  <div
+                    className={`mb-5 rounded-xl border px-4 py-3 text-sm font-light ${
+                      status.state === "success"
+                        ? "border-[#c5d4c7] bg-[#F4F8F5] text-[#2F5640]"
+                        : status.state === "error"
+                        ? "border-red-200 bg-red-50 text-red-700"
+                        : "border-[#c5d4c7] bg-white text-[#5a6e5a]"
+                    }`}
+                  >
+                    {status.message}
+                  </div>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot (anti-spam) */}
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                  />
+
                   {/* Nom */}
                   <div className="space-y-2">
-                    <label className="text-xs text-[#2F5640]" htmlFor="name" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <label
+                      className="text-xs text-[#2F5640]"
+                      htmlFor="name"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
                       Nom complet
                     </label>
                     <input
@@ -82,7 +176,11 @@ export default function ContactSection() {
 
                   {/* Email */}
                   <div className="space-y-2">
-                    <label className="text-xs text-[#2F5640]" htmlFor="email" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <label
+                      className="text-xs text-[#2F5640]"
+                      htmlFor="email"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
                       Email
                     </label>
                     <input
@@ -99,7 +197,11 @@ export default function ContactSection() {
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <label className="text-xs text-[#2F5640]" htmlFor="message" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <label
+                      className="text-xs text-[#2F5640]"
+                      htmlFor="message"
+                      style={{ fontFamily: "'Inter', sans-serif" }}
+                    >
                       Message
                     </label>
                     <textarea
@@ -160,9 +262,14 @@ export default function ContactSection() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="h-12 w-full rounded-xl bg-[#4C7A5A] text-sm font-light tracking-wide text-white transition hover:bg-[#2F5640]"
+                    disabled={status.state === "sending"}
+                    className={`h-12 w-full rounded-xl text-sm font-light tracking-wide text-white transition ${
+                      status.state === "sending"
+                        ? "bg-[#4C7A5A]/70 cursor-not-allowed"
+                        : "bg-[#4C7A5A] hover:bg-[#2F5640]"
+                    }`}
                   >
-                    Envoyer le message
+                    {status.state === "sending" ? "Envoi en cours..." : "Envoyer le message"}
                   </button>
                 </form>
               </div>
@@ -180,20 +287,20 @@ export default function ContactSection() {
                 <div className="flex items-start gap-4">
                   <Mail className="mt-0.5 h-5 w-5 text-[#4C7A5A]" />
                   <div>
-                        <div className="text-sm font-light text-[#2F5640]">Email</div>
-                        <div className="mt-1 text-sm font-light text-[#5a6e5a]">
-                          {siteContent.contact?.info?.email}
-                        </div>
+                    <div className="text-sm font-light text-[#2F5640]">Email</div>
+                    <div className="mt-1 text-sm font-light text-[#5a6e5a]">
+                      {siteContent.contact?.info?.email}
+                    </div>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <Instagram className="mt-0.5 h-5 w-5 text-[#4C7A5A]" />
                   <div>
-                        <div className="text-sm font-light text-[#2F5640]">Instagram</div>
-                        <div className="mt-1 text-sm font-light text-[#5a6e5a]">
-                          {siteContent.contact?.info?.instagramHandle}
-                        </div>
+                    <div className="text-sm font-light text-[#2F5640]">Instagram</div>
+                    <div className="mt-1 text-sm font-light text-[#5a6e5a]">
+                      {siteContent.contact?.info?.instagramHandle}
+                    </div>
                   </div>
                 </div>
 

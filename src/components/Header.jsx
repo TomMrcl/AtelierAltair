@@ -13,7 +13,6 @@ export default function Header() {
     setIsMenuOpen(false);
   };
 
-  // bonus: fermer le menu mobile si on repasse en desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setIsMenuOpen(false);
