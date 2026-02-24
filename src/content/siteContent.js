@@ -5,7 +5,6 @@ const siteContent = {
       { label: "Accueil", href: "#home" },
       { label: "Galerie", href: "#gallery" },
       { label: "Artiste", href: "#artist" },
-      { label: "Disponibilités", href: "#booking" },
       { label: "Tarifs & FAQ", href: "#pricing" },
       { label: "Contact", href: "#contact" },
     ],
@@ -91,6 +90,7 @@ const siteContent = {
       src: "/example-video.mp4",
       poster:
         "https://images.unsplash.com/photo-1611324980068-0f4b88c92550?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600",
+      alt: "Vidéo de présentation de l'artiste en action",
     },
   },
 

@@ -5,7 +5,6 @@ import ArtistSection from "./components/Artist.jsx";
 import PricingSection from "./components/FAQ.jsx";
 import ContactSection from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
-import AvailabilitySection from "./components/Availability.jsx";
 import CreationsSection from "./components/Creations.jsx";
 import Atelier from "./components/Atelier.jsx";
 
@@ -17,7 +16,6 @@ export default function App() {
         <HeroSection />
         <Gallery />
         <ArtistSection />
-        <AvailabilitySection />
         <PricingSection />
         <CreationsSection />
         <Atelier />
